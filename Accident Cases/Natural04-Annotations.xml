@@ -1,0 +1,4 @@
+{"LOC": ["southbound","eastbound","northbound","north","south","east","eastbound","southbound"],
+"Vehicles": ["Black toyota camry","White honda accord", "Red ford focus"],
+"Cardinal": ["two","three","two","one"],
+"Quantity": ["45mph","30mph","35mph"]}

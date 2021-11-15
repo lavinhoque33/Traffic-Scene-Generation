@@ -1,0 +1,4 @@
+{"LOC": ["southbound","south","south"],
+"Vehicles": ["black SUV","black sedan", "red toyota corolla", "red minivan"],
+"Cardinal": ["two","one","one"],
+"Quantity": ["55mph","80mph","70mph","80mph"]}

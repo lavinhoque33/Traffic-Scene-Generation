@@ -1,0 +1,4 @@
+{"LOC": ["westbound","north","south"],
+"Vehicles": ["White audi A6","Black sedan", "Bicycle", "Red SUV"],
+"Cardinal": ["three","two","one","One"],
+"Quantity": ["15mph","10mph","35mph"]}

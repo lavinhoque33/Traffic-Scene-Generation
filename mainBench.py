@@ -1,36 +1,22 @@
 import spacy
 import neuralcoref
 from nltk import Tree
-from pathlib import Path
-# from transformers import pipeline
-#
-# nlp2 = pipeline("ner")
-# import nltk
-# nltk.download('punkt')
-# nltk.download('averaged_perceptron_tagger')
-# nltk.download('maxent_ne_chunker')
-# nltk.download('words')
+from transformers import pipeline
+
+nlp2 = pipeline("ner")
+import nltk
+nltk.download('punkt')
+nltk.download('averaged_perceptron_tagger')
+nltk.download('maxent_ne_chunker')
+nltk.download('words')
 # from allennlp_models import pretrained
 # al = pretrained.load_predictor("tagging-fine-grained-transformer-crf-tagger")
 # from polyglot.text import Text
 
-def to_nltk_tree(node):
-    if node.n_lefts + node.n_rights > 0:
-        return Tree(node.orth_, [to_nltk_tree(child) for child in node.children])
-    else:
-        return node.orth_
-
-output_dir = Path('./content/')
-
-# Load the saved model and predict
-print("Loading from", output_dir)
-nlp = spacy.load(output_dir)
-# nlp = spacy.load("en_core_web_lg")           # load package "en_core_web_sm"
-neuralcoref.add_to_pipe(nlp)
 
 baseDir = "D:\\Downloads\\Documents\\CS699\\SpaceTraffic2\\Accident Cases\\"
 
-with open(baseDir+'Natural10.xml') as sFile:
+with open(baseDir+'Natural01.xml') as sFile:
     text3 = sFile.read()
 print(text3)
 # Process whole documents
@@ -45,30 +31,24 @@ text2 = ("It is a two-way, double-lane southbound residential street with paveme
          " One black SUV is going South at a speed of 25mph."
          " One red sedan is going South at a speed of 35mph. It is leading the black SUV by 200ft. "
          "The distance between the black SUV and ego-vehicle is 300ft.")
-doc = nlp(text3)
 
 # Analyze syntax
-print("Noun phrases:", [chunk.text for chunk in doc.noun_chunks])
+# print("Noun phrases:", [chunk.text for chunk in doc.noun_chunks])
 # print("Verbs:", [token.lemma_ for token in doc if token.pos_ == "VERB"])
 #
 # for token in doc:
-#         print(token,token.pos_,token.lemma_)
+#         print(token,token.ent_type_,token.lemma_)
 
 # Find named entities, phrases and concepts
-for entity in doc.ents:
-    print(entity.text, entity.label_)
-print(doc._.has_coref)
-print(doc._.coref_clusters)
-# print(nlp2(text))
+print(nlp2(text))
 # txt = Text(text)
 # for sent in txt.sentences:
 #   print(sent, "\n")
 #   for entity in sent.entities:
 #     print(entity.tag, entity)
-
-# {print(' '.join(c[0] for c in chunk), chunk.label() ) for chunk in nltk.ne_chunk(nltk.pos_tag(nltk.word_tokenize(text2))) if hasattr(chunk, 'label') }
+print("NLTK \n \n \n")
+{print(' '.join(c[0] for c in chunk), chunk.label() ) for chunk in nltk.ne_chunk(nltk.pos_tag(nltk.word_tokenize(text2))) if hasattr(chunk, 'label') }
 # tmp = al.predict(sentence=text)
 # for i in range(len(tmp['words'])):
 #     if(tmp['tags'][i] != 0):
 #         print(tmp['words'][i],tmp['tags'][i])
-# [to_nltk_tree(sent.root).pretty_print() for sent in doc.sents]

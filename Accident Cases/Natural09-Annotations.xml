@@ -1,0 +1,4 @@
+{"LOC": ["Eastbound","east","east","west","west","east"],
+"Vehicles": ["persons","person", "indigo sedan", "black buick regal"],
+"Cardinal": ["two","single","two","one"],
+"Quantity": ["20mph","15mph","25mph"]}
