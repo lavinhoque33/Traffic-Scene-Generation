@@ -1,0 +1,21 @@
+Case:15
+
+It's a divided, three-lane road.
+A ego-vehicle is stopped at a signal while going North.
+One black hatchback is turning left onto the Northbound road from a eastbound side-road.
+A black SUV is following closely behind.
+A black minivan is ahead of One black hatchback, going at a speed of 40mph.
+
+Road Property
+"type" : "junction"
+"junc" : {}
+"east" : {"way": 2, "lane": 1, "divided": false}
+
+Vehicles
+{"makemodel": "Ego-vehicle", "root": "ego-vehicle", "phrase": "A ego-vehicle", "actions": [{"action": "stop", "direction": "north"}]}
+{"makemodel": "Hatchback", "root": "hatchback", "color": "black", "phrase": "One black hatchback", "actions": [{"action": "turn", "direction": "north"}]}
+{"makemodel": "SUV", "root": "SUV", "color": "black", "phrase": "A black SUV", "actions": [{"action": "follow", "relatedto": "Hatchback", "direction": "north"}]}
+{"makemodel": "Minivan", "root": "minivan", "color": "black", "phrase": "A black minivan", "actions": [{"action": "go", "speed": "40mph"}]}
+
+
+

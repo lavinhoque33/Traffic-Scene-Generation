@@ -1,0 +1,996 @@
+Case:1
+
+It is a one-way, double-lane city road.
+Two black hatchbacks, one brown hatchback and one white hatchback are parked off-street on the left side. 
+A pickup-truck and one red hatchback is parked on the right side of the road. 
+A ego-vehicle is travelling east at a speed of 30mph through the right lane. A silver hatchback is ahead of A ego-vehicle on the right lane travelling at 40mph.
+One black SUV is on the left lane travelling at 35mph. A brown hatchback is following One black SUV at 35mph.
+
+Road Property
+"type" : "regular"
+"main" : {"way": 1, "divided": false, "lane": 2}
+
+Vehicles
+{"makemodel": "Hatchback", "root": "hatchbacks", "color": "black", "phrase": "Two black hatchbacks", "actions": [{"action": "park", "parkloc": "off-road", "parkdir": "left"}, {"action": "park", "lane": "left"}]}
+{"makemodel": "Hatchback", "root": "hatchbacks", "color": "black", "phrase": "Two black hatchbacks", "actions": [{"action": "park", "parkloc": "off-road", "parkdir": "left"}, {"action": "park", "lane": "left"}]}
+{"makemodel": "Hatchback", "root": "hatchback", "color": "brown", "phrase": "one brown hatchback", "actions": [{"action": "travel", "speed": "35mph", "lane": "left"}, {"action": "park", "lane": "left"}]}
+{"makemodel": "Hatchback", "root": "hatchback", "color": "white", "phrase": "one white hatchback", "actions": [{"action": "park", "parkloc": "off-road", "parkdir": "left", "lane": "left"}, {"action": "park", "lane": "left"}]}
+{"makemodel": "Pickup-truck", "root": "pickup-truck", "phrase": "A pickup-truck", "actions": [{"action": "park", "parkloc": "on-road", "parkdir": "right"}, {"action": "park", "lane": "right"}]}
+{"makemodel": "Hatchback", "root": "hatchback", "color": "red", "phrase": "one red hatchback", "actions": [{"action": "park", "parkloc": "on-road", "parkdir": "right", "lane": "right"}, {"action": "park", "lane": "right"}]}
+{"makemodel": "Ego-vehicle", "root": "ego-vehicle", "phrase": "A ego-vehicle", "actions": [{"action": "travel", "speed": "30mph", "direction": "east", "lane": "right"}, {"action": "travel", "speed": "30mph", "direction": "east", "lane": "right"}]}
+{"makemodel": "Hatchback", "root": "hatchback", "color": "silver", "phrase": "A silver hatchback", "actions": [{"action": "travel", "speed": "40mph", "direction": "east", "lane": "right"}, {"action": "travel", "speed": "40mph", "relatedto": "Ego-vehicle", "direction": "east", "lane": "right"}]}
+{"makemodel": "SUV", "root": "SUV", "color": "black", "phrase": "One black SUV", "actions": [{"action": "travel", "speed": "35mph", "lane": "left"}, {"action": "travel", "speed": "35mph", "lane": "left"}]}
+{"makemodel": "Hatchback", "root": "hatchback", "color": "brown", "phrase": "A brown hatchback", "actions": [{"action": "travel", "speed": "35mph", "direction": "south", "actedon": "SUV", "relaction": "follow"}, {"action": "follow", "speed": "35mph", "actedon": "SUV", "relaction": "follow", "relatedto": "SUV"}]}
+
+
+
+Case:2
+
+It is a one-way, single-lane road.
+Two hatchbacks, one SUV and two microbuses are parked off-street on the left side.
+A ego-vehicle is travelling North at 30mph.
+One silver hatchback is travelling North at a speed of 25mph.
+
+Road Property
+"type" : "regular"
+"main" : {"way": 1, "divided": false, "lane": 1}
+
+Vehicles
+{"makemodel": "Hatchback", "root": "hatchbacks", "phrase": "Two hatchbacks", "actions": [{"action": "park", "parkloc": "off-road", "parkdir": "left"}, {"action": "park", "lane": "left"}]}
+{"makemodel": "Hatchback", "root": "hatchbacks", "phrase": "Two hatchbacks", "actions": [{"action": "park", "parkloc": "off-road", "parkdir": "left"}, {"action": "park", "lane": "left"}]}
+{"makemodel": "SUV", "root": "SUV", "phrase": "one SUV", "actions": [{"action": "travel", "direction": "north"}, {"action": "park", "lane": "left"}]}
+{"makemodel": "SUV", "root": "SUV", "phrase": "one SUV", "actions": [{"action": "travel", "direction": "north"}, {"action": "park", "lane": "left"}]}
+{"makemodel": "Ego-vehicle", "root": "ego-vehicle", "phrase": "A ego-vehicle", "actions": [{"action": "travel", "speed": "30mph", "direction": "north"}, {"action": "travel", "speed": "30mph", "direction": "north"}]}
+{"makemodel": "Hatchback", "root": "hatchback", "color": "silver", "phrase": "One silver hatchback", "actions": [{"action": "travel", "speed": "25mph", "direction": "north"}, {"action": "travel", "speed": "25mph", "direction": "north"}]}
+
+
+
+Case:3
+
+It's a one-way, double-lane road. The speed limit is 40mph.
+A ego-vehicle is going South at 25mph.
+One silver hatchback is travelling through the left lane at a speed of 35mph. 
+One black hatchback is following closely behind.
+Another black hatchback is travelling through the right lane at a speed of 30mph.
+
+Road Property
+"type" : "regular"
+"main" : {"way": 1, "divided": false, "lane": 2}
+
+Vehicles
+{"makemodel": "Ego-vehicle", "root": "ego-vehicle", "phrase": "A ego-vehicle", "actions": [{"action": "travel", "direction": "south", "speed": "25mph"}, {"action": "go", "speed": "25mph", "direction": "south"}]}
+{"makemodel": "Hatchback", "root": "hatchback", "color": "silver", "phrase": "One silver hatchback", "actions": [{"action": "travel", "speed": "35mph", "direction": "south", "lane": "left"}, {"action": "travel", "speed": "35mph", "lane": "left"}]}
+{"makemodel": "Hatchback", "root": "hatchback", "color": "black", "phrase": "One black hatchback", "actions": [{"action": "travel", "direction": "south"}, {"action": "follow", "relatedto": "Hatchback", "direction": "south"}]}
+{"makemodel": "Hatchback", "root": "hatchback", "color": "black", "phrase": "Another black hatchback", "actions": [{"action": "travel", "speed": "30mph", "direction": "south", "lane": "right"}, {"action": "travel", "speed": "30mph", "lane": "right"}]}
+
+
+
+Case:4
+
+It is a divided city road with two lanes eastbound and one lane westbound.
+Two SUVs are parked off-street on the right side.
+One black SUV and One silver hatchback are on the right lane, stopped at a signal, while going east.
+Another black hatchback is also stopped at the signal on the left lane, while going east.
+A ego-vehicle is going east through the right lane at 20mph.
+
+Road Property
+"type" : "regular"
+"main" : {"way": 2, "divided": true, "lane": 2}
+
+Vehicles
+{"makemodel": "SUV", "root": "SUVs", "phrase": "Two SUVs", "actions": [{"action": "park", "parkloc": "off-road", "parkdir": "right"}, {"action": "park", "lane": "right"}]}
+{"makemodel": "SUV", "root": "SUVs", "phrase": "Two SUVs", "actions": [{"action": "park", "parkloc": "off-road", "parkdir": "right"}, {"action": "park", "lane": "right"}]}
+{"makemodel": "SUV", "root": "SUV", "color": "black", "phrase": "One black SUV", "actions": [{"action": "stop", "direction": "east", "branch": "east", "lane": "right"}, {"action": "stop", "direction": "east", "lane": "right"}]}
+{"makemodel": "Hatchback", "root": "hatchback", "color": "silver", "phrase": "One silver hatchback", "actions": [{"action": "stop", "direction": "east", "branch": "east", "lane": "right"}, {"action": "stop", "direction": "east", "lane": "right"}]}
+{"makemodel": "Hatchback", "root": "hatchback", "color": "black", "phrase": "Another black hatchback", "actions": [{"action": "stop", "direction": "east", "branch": "east", "lane": "left"}, {"action": "stop", "direction": "east", "lane": "left"}]}
+{"makemodel": "Ego-vehicle", "root": "ego-vehicle", "phrase": "A ego-vehicle", "actions": [{"action": "travel", "speed": "20mph", "direction": "east", "lane": "right"}, {"action": "go", "speed": "20mph", "direction": "east", "lane": "right"}]}
+
+
+
+Case:5
+
+It's a two-way road with three lanes: one eastbound lane and two westbound lanes. The speed limit is 40mph.
+A ego-vehicle is going east at 30mph.
+A black 2012 Honda Accord is going west through the right lane at 40mph.
+A motorcycle is following A black 2012 Honda Accord closely behind.
+
+Road Property
+"type" : "regular"
+"main" : {"way": 2, "divided": false, "lane": 3}
+
+Vehicles
+{"makemodel": "Ego-vehicle", "root": "ego-vehicle", "phrase": "A ego-vehicle", "actions": [{"action": "travel", "speed": "30mph", "direction": "east"}, {"action": "go", "speed": "30mph", "direction": "east"}]}
+{"makemodel": "Honda Accord", "root": "Accord", "color": "black", "year": "2012", "phrase": "A black 2012 Honda Accord", "actions": [{"action": "travel", "speed": "40mph", "direction": "west", "lane": "right"}, {"action": "go", "speed": "40mph", "direction": "west", "lane": "right"}]}
+{"makemodel": "Motorcycle", "root": "motorcycle", "phrase": "A motorcycle", "actions": [{"action": "travel", "direction": "west", "lane": "right", "actedon": "Honda Accord", "relaction": "follow"}, {"action": "follow", "actedon": "Honda Accord", "relaction": "follow", "relatedto": "Honda Accord", "direction": "west"}]}
+
+
+
+Case:6
+
+It's a two-way, single-lane city road. The speed limit is 30mph.
+A ego-vehicle is going North at 20mph.
+A black Mitsubishi Pajero is going South at 25mph.
+A white Toyota Prado is following closely behind.
+
+Road Property
+"type" : "regular"
+"main" : {"way": 2, "divided": false, "lane": 1}
+
+Vehicles
+{"makemodel": "Ego-vehicle", "root": "ego-vehicle", "phrase": "A ego-vehicle", "actions": [{"action": "travel", "direction": "north", "lane": "right", "speed": "20mph"}, {"action": "go", "speed": "20mph", "direction": "north"}]}
+{"makemodel": "Hindustan Pajero", "root": "Pajero", "color": "Mitsubishi", "phrase": "A black Mitsubishi Pajero", "actions": [{"action": "travel", "direction": "south", "lane": "right", "speed": "25mph"}, {"action": "go", "speed": "25mph", "direction": "south"}]}
+{"makemodel": "Toyota Prado", "root": "Prado", "color": "white", "phrase": "A white Toyota Prado", "actions": [{"action": "travel", "speed": "25mph", "direction": "south", "lane": "right"}, {"action": "follow", "relatedto": "Hindustan Pajero", "direction": "south"}]}
+
+
+
+Case:7
+
+It's a two-way, double-lane westbound road. The speed limit is 40mph.
+A ego-vehicle is going west at 30mph.
+A red van is ahead of A ego-vehicle, stopped at a signal.
+One red SUV is parked off-street on the left side of the road.
+One blue microbus is going east through the right lane at 35mph.
+A blue SUV is turning right onto a Northbound side-road.
+
+Road Property
+"type" : "regular"
+"main" : {"way": 2, "divided": false}
+
+Vehicles
+{"makemodel": "Ego-vehicle", "root": "ego-vehicle", "phrase": "A ego-vehicle", "actions": [{"action": "travel", "speed": "30mph", "direction": "west"}, {"action": "go", "speed": "30mph", "direction": "west"}]}
+{"makemodel": "Van", "root": "van", "color": "red", "phrase": "A red van", "actions": [{"action": "stop", "direction": "west", "branch": "west"}, {"action": "stop", "relatedto": "Ego-vehicle", "direction": "west"}]}
+{"makemodel": "SUV", "root": "SUV", "color": "red", "phrase": "One red SUV", "actions": [{"action": "park", "parkloc": "off-road", "parkdir": "left"}, {"action": "park", "lane": "left"}]}
+{"makemodel": "Microbus", "root": "microbus", "color": "blue", "phrase": "One blue microbus", "actions": [{"action": "travel", "speed": "35mph", "direction": "east", "lane": "right"}, {"action": "go", "speed": "35mph", "direction": "east", "lane": "right"}]}
+{"makemodel": "SUV", "root": "SUV", "color": "blue", "phrase": "A blue SUV", "actions": [{"action": "turn", "reldir": "right"}, {"action": "turn", "direction": "north"}]}
+
+
+
+Case:8
+
+It's a two-way, single-lane road. The weather is clear.
+A ego-vehicle is going east at a speed of 40mph.
+An orange 2009 Toyota Corolla is going west at 35mph.
+A white SUV is ahead of A ego-vehicle, travelling at 45mph.
+
+Road Property
+"type" : "regular"
+"main" : {"way": 2, "divided": false, "lane": 1}
+
+Vehicles
+{"makemodel": "Ego-vehicle", "root": "ego-vehicle", "phrase": "A ego-vehicle", "actions": [{"action": "travel", "speed": "40mph", "direction": "east", "lane": "right"}, {"action": "go", "speed": "40mph", "direction": "east"}]}
+{"makemodel": "Toyota Corolla", "root": "Corolla", "color": "orange", "year": "2009", "phrase": "An orange 2009 Toyota Corolla", "actions": [{"action": "travel", "speed": "35mph", "direction": "west", "lane": "right"}, {"action": "go", "speed": "35mph", "direction": "west"}]}
+{"makemodel": "SUV", "root": "SUV", "color": "white", "phrase": "A white SUV", "actions": [{"action": "travel", "speed": "45mph", "direction": "west", "lane": "right"}, {"action": "travel", "speed": "45mph", "relatedto": "Ego-vehicle", "direction": "east"}]}
+
+
+
+Case:9
+
+It's a divided, single-lane road. 
+Three SUVs and two sedans are parked off-street on the right side.
+A ego-vehicle is travelling North at 20mph.
+A red van is ahead of A ego-vehicle travelling at 30mph.
+A silver hatchback is going in the opposite direction at 20mph.
+A silver 2011 Ford Focus is following A silver hatchback at 15mph.
+
+Road Property
+"type" : "regular"
+"main" : {"way": 1, "divided": false, "lane": 1}
+
+Vehicles
+{"makemodel": "SUV", "root": "SUVs", "phrase": "Three SUVs", "actions": [{}, {"action": "park", "lane": "right"}]}
+{"makemodel": "SUV", "root": "SUVs", "phrase": "Three SUVs", "actions": [{}, {"action": "park", "lane": "right"}]}
+{"makemodel": "Sedan", "root": "sedans", "phrase": "two sedans", "actions": [{"action": "park", "parkloc": "off-road", "parkdir": "right"}, {"action": "park", "lane": "right"}]}
+{"makemodel": "Sedan", "root": "sedans", "phrase": "two sedans", "actions": [{"action": "park", "parkloc": "off-road", "parkdir": "right"}, {"action": "park", "lane": "right"}]}
+{"makemodel": "Ego-vehicle", "root": "ego-vehicle", "phrase": "A ego-vehicle", "actions": [{"action": "travel", "speed": "20mph", "direction": "north"}, {"action": "travel", "speed": "20mph", "direction": "north"}]}
+{"makemodel": "Van", "root": "van", "color": "red", "phrase": "A red van", "actions": [{"action": "travel", "speed": "30mph", "direction": "north"}, {"action": "travel", "speed": "30mph", "relatedto": "Ego-vehicle", "direction": "north"}]}
+{"makemodel": "Hatchback", "root": "hatchback", "color": "silver", "phrase": "A silver hatchback", "actions": [{"action": "travel", "speed": "20mph", "direction": "south"}, {"action": "go", "speed": "20mph"}]}
+{"makemodel": "Ford Focus", "root": "Focus", "color": "silver", "year": "2011", "phrase": "A silver 2011 Ford Focus", "actions": [{"action": "travel", "direction": "south", "lane": "right", "speed": "15mph", "actedon": "Hatchback", "relaction": "follow"}, {"action": "follow", "speed": "15mph", "actedon": "Hatchback", "relaction": "follow", "relatedto": "Hatchback", "direction": "south"}]}
+
+
+
+Case:10
+
+It's a two-way, double-lane state road with a speed limit of 55mph.
+A ego-vehicle is going west at 50mph.
+A red minivan is ahead of A ego-vehicle, travelling at 60mph.
+
+Road Property
+"type" : "regular"
+"main" : {"way": 2, "divided": false}
+
+Vehicles
+{"makemodel": "Ego-vehicle", "root": "ego-vehicle", "phrase": "A ego-vehicle", "actions": [{"action": "travel", "speed": "50mph", "direction": "west", "lane": "right"}, {"action": "go", "speed": "50mph", "direction": "west"}]}
+{"makemodel": "Minivan", "root": "minivan", "color": "red", "phrase": "A red minivan", "actions": [{"action": "travel", "speed": "60mph", "direction": "west", "lane": "right"}, {"action": "travel", "speed": "60mph", "relatedto": "Ego-vehicle", "direction": "west"}]}
+
+
+
+Case:11
+
+It's a divided, three-lane state road with a speed limit of 50mph.
+A ego-vehicle is going North using the right lane at 35mph.
+A white microbus is ahead of A ego-vehicle, going through the middle lane at 40mph.
+A black sedan is far ahead of A white microbus, going through the left lane at 50mph.
+Another white microbus is going in the opposite direction through the left lane at 50mph.
+
+Road Property
+"type" : "regular"
+"main" : {"divided": true, "lane": 3}
+
+Vehicles
+{"makemodel": "Ego-vehicle", "root": "ego-vehicle", "phrase": "A ego-vehicle", "actions": [{"action": "travel", "speed": "35mph", "direction": "north", "lane": "right"}, {"action": "go", "speed": "35mph", "direction": "north", "lane": "right"}]}
+{"makemodel": "Microbus", "root": "microbus", "color": "white", "phrase": "A white microbus", "actions": [{"action": "travel", "speed": "40mph", "direction": "south"}, {"action": "go", "speed": "40mph", "relatedto": "Ego-vehicle", "direction": "north", "lane": "middle"}]}
+{"makemodel": "Sedan", "root": "sedan", "color": "black", "phrase": "A black sedan", "actions": [{"action": "travel", "speed": "50mph", "direction": "north", "lane": "left"}, {"action": "go", "speed": "50mph", "relatedto": "Microbus", "direction": "south", "lane": "left"}]}
+{"makemodel": "Microbus", "root": "microbus", "color": "white", "phrase": "Another white microbus", "actions": [{"action": "travel", "direction": "south", "lane": "left", "speed": "50mph"}, {"action": "go", "speed": "50mph", "lane": "left"}]}
+
+
+
+Case:12
+
+It's a 4-way junction.
+A red minivan and a ego-vehicle is stopped at the signal on the South branch of the junction.
+One black SUV is going right through the junction at 50mph.
+A white hatchback is following One black SUV at 45mph.
+One silver hatchback is turning right onto the North branch of the junction.
+
+Road Property
+"type" : "junction"
+"junc" : {"type": "4-way"}
+"south" : {"way": 2, "lane": 1, "divided": false}
+"north" : {"way": 2, "lane": 1, "divided": false}
+
+Vehicles
+{"makemodel": "Minivan", "root": "minivan", "color": "red", "phrase": "A red minivan", "actions": [{"action": "stop", "direction": "south", "branch": "south"}, {"action": "stop", "direction": "south"}]}
+{"makemodel": "Ego-vehicle", "root": "ego-vehicle", "phrase": "a ego-vehicle", "actions": [{"action": "park", "parkloc": "on-road", "parkdir": "left"}, {"action": "stop", "direction": "south"}]}
+{"makemodel": "SUV", "root": "SUV", "color": "black", "phrase": "One black SUV", "actions": [{"action": "travel", "speed": "50mph", "lane": "right"}, {"action": "go", "speed": "50mph"}]}
+{"makemodel": "Hatchback", "root": "hatchback", "color": "white", "phrase": "A white hatchback", "actions": [{"action": "travel", "speed": "45mph", "direction": "south", "lane": "right", "actedon": "SUV", "relaction": "follow"}, {"action": "follow", "speed": "45mph", "actedon": "SUV", "relaction": "follow", "relatedto": "SUV"}]}
+{"makemodel": "Hatchback", "root": "hatchback", "color": "silver", "phrase": "One silver hatchback", "actions": [{"action": "turn", "reldir": "right", "lane": "right"}, {"action": "turn", "direction": "north"}]}
+
+
+
+Case:13
+
+It's a divided, three-lane state road with speed limit of 50mph.
+A ego-vehicle is going north at 45mph.
+A brown van is far ahead of A ego-vehicle, going at 50mph.
+A black sedan is about to pass A brown van at 55mph using the left lane.
+A white minivan is going south at 40mph using the middle lane.
+A white covered van is about to pass A white minivan at 45mph using the left lane.
+
+Road Property
+"type" : "regular"
+"main" : {"divided": true, "lane": 3}
+
+Vehicles
+{"makemodel": "Ego-vehicle", "root": "ego-vehicle", "phrase": "A ego-vehicle", "actions": [{"action": "travel", "direction": "north", "speed": "45mph"}, {"action": "go", "speed": "45mph", "direction": "north"}]}
+{"makemodel": "Van", "root": "van", "color": "brown", "phrase": "A brown van", "actions": [{"action": "travel", "speed": "50mph", "direction": "north"}, {"action": "go", "speed": "50mph", "relatedto": "Ego-vehicle", "direction": "north"}]}
+{"makemodel": "Sedan", "root": "sedan", "color": "black", "phrase": "A black sedan", "actions": [{"action": "travel", "speed": "55mph", "direction": "north", "lane": "left", "actedon": "Van", "relaction": "pass"}, {"action": "pass", "speed": "55mph", "actedon": "Van", "relaction": "pass", "lane": "left"}]}
+{"makemodel": "Minivan", "root": "minivan", "color": "white", "phrase": "A white minivan", "actions": [{"action": "travel", "direction": "south", "speed": "40mph"}, {"action": "go", "speed": "40mph", "direction": "south", "lane": "middle"}]}
+{"makemodel": "Van", "root": "van", "color": "covered", "phrase": "A white covered van", "actions": [{"action": "travel", "speed": "45mph", "direction": "south", "lane": "left", "actedon": "Minivan", "relaction": "pass"}, {"action": "pass", "speed": "45mph", "actedon": "Minivan", "relaction": "pass", "lane": "left"}]}
+
+
+
+Case:14
+
+It's a divided, three-lane state road.
+A ego-vehicle is going west using the right lane at 45mph.
+A 2015 Toyota Camry is ahead of A ego-vehicle on the left lane, travelling at 45mph.
+A red pickup-truck is ahead of A 2015 Toyota Camry, travelling at 40mph through the right lane.
+A black hatchback is about to pass A red pickup-truck at 45mph using the middle lane.
+A red SUV is going east at 50mph using the middle lane.
+A white microbus is behind A red SUV, going at 45mph using the left lane.
+
+Road Property
+"type" : "regular"
+"main" : {"divided": true, "lane": 3}
+
+Vehicles
+{"makemodel": "Ego-vehicle", "root": "ego-vehicle", "phrase": "A ego-vehicle", "actions": [{"action": "travel", "speed": "45mph", "direction": "west", "lane": "right"}, {"action": "go", "speed": "45mph", "direction": "west", "lane": "right"}]}
+{"makemodel": "Toyota Camry", "root": "Camry", "year": "2015", "phrase": "A 2015 Toyota Camry", "actions": [{"action": "travel", "speed": "45mph", "direction": "west", "lane": "left"}, {"action": "travel", "speed": "45mph", "relatedto": "Ego-vehicle", "direction": "west", "lane": "left"}]}
+{"makemodel": "Pickup-truck", "root": "pickup-truck", "color": "red", "phrase": "A red pickup-truck", "actions": [{"action": "travel", "speed": "40mph", "lane": "right", "direction": "west"}, {"action": "travel", "speed": "40mph", "relatedto": "Toyota Camry", "direction": "west", "lane": "right"}]}
+{"makemodel": "Hatchback", "root": "hatchback", "color": "black", "phrase": "A black hatchback", "actions": [{"action": "travel", "speed": "45mph", "direction": "west", "actedon": "Pickup-truck", "relaction": "pass"}, {"action": "pass", "speed": "45mph", "actedon": "Pickup-truck", "relaction": "pass", "lane": "middle"}]}
+{"makemodel": "SUV", "root": "SUV", "color": "red", "phrase": "A red SUV", "actions": [{"action": "travel", "speed": "50mph", "direction": "east"}, {"action": "go", "speed": "50mph", "direction": "east", "lane": "middle"}]}
+{"makemodel": "Microbus", "root": "microbus", "color": "white", "phrase": "A white microbus", "actions": [{"action": "travel", "speed": "45mph", "lane": "left", "direction": "east"}, {"action": "go", "speed": "45mph", "relatedto": "SUV", "direction": "east", "lane": "left"}]}
+
+
+
+Case:15
+
+It's a divided, three-lane road.
+A ego-vehicle is stopped at a signal while going North.
+One black hatchback is turning left onto the Northbound road from a eastbound side-road.
+A black SUV is following closely behind.
+A black minivan is ahead of One black hatchback, going at a speed of 40mph.
+
+Road Property
+"type" : "junction"
+"junc" : {}
+"east" : {"way": 2, "lane": 1, "divided": false}
+
+Vehicles
+{"makemodel": "Ego-vehicle", "root": "ego-vehicle", "phrase": "A ego-vehicle", "actions": [{"action": "stop", "direction": "north", "branch": "north"}, {"action": "stop", "direction": "north"}]}
+{"makemodel": "Hatchback", "root": "hatchback", "color": "black", "phrase": "One black hatchback", "actions": [{"action": "turn", "reldir": "left", "lane": "left"}, {"action": "turn", "direction": "north"}]}
+{"makemodel": "SUV", "root": "SUV", "color": "black", "phrase": "A black SUV", "actions": [{"action": "travel", "direction": "north"}, {"action": "follow", "relatedto": "Hatchback"}]}
+{"makemodel": "Minivan", "root": "minivan", "color": "black", "phrase": "A black minivan", "actions": [{"action": "travel", "speed": "40mph", "direction": "north", "lane": "right"}, {"action": "go", "speed": "40mph", "relatedto": "Hatchback"}]}
+
+
+
+Case:16
+
+It's divided, two-lane state road with a speed limit of 50mph.
+A ego-vehicle is travelling North through the right lane at 55mph.
+A grey hatchback is ahead of A ego-vehicle, going at 55mph through the left lane.
+A silver hatchback is far ahead of A grey hatchback on the right lane.
+A white sedan is travelling South through the left lane at 50mph.
+
+Road Property
+"type" : "regular"
+"main" : {"way": 2, "divided": true, "lane": 2}
+
+Vehicles
+{"makemodel": "Ego-vehicle", "root": "ego-vehicle", "phrase": "A ego-vehicle", "actions": [{"action": "travel", "speed": "55mph", "direction": "north", "lane": "right"}, {"action": "travel", "speed": "55mph", "direction": "north", "lane": "right"}]}
+{"makemodel": "Hatchback", "root": "hatchback", "color": "grey", "phrase": "A grey hatchback", "actions": [{"action": "travel", "speed": "55mph", "direction": "north", "lane": "left"}, {"action": "go", "speed": "55mph", "relatedto": "Ego-vehicle", "direction": "north", "lane": "left"}]}
+{"makemodel": "Hatchback", "root": "hatchback", "color": "silver", "phrase": "A silver hatchback", "actions": [{"action": "travel", "speed": "55mph", "direction": "north", "lane": "right"}]}
+{"makemodel": "Sedan", "root": "sedan", "color": "white", "phrase": "A white sedan", "actions": [{"action": "travel", "speed": "50mph", "direction": "south", "lane": "left"}, {"action": "travel", "speed": "50mph", "direction": "south", "lane": "left"}]}
+
+
+
+Case:17
+
+It's a 4-way junction.
+A ego-vehicle is stopped at the signal on the West branch of the junction.
+One white 2011 ford fiesta is going east through the junction at 55mph using the left lane.
+A white van is close behind One white 2011 ford fiesta, going at 55mph using the right lane.
+One red hatchback is following A white van, through the left lane at 45mph.
+One maroon SUV is following closely behind at a speed of 40mph.
+
+Road Property
+"type" : "junction"
+"junc" : {"type": "4-way"}
+"west" : {"way": 2, "lane": 1, "divided": false}
+
+Vehicles
+{"makemodel": "Ego-vehicle", "root": "ego-vehicle", "phrase": "A ego-vehicle", "actions": [{"action": "stop", "branch": "west"}, {"action": "stop", "direction": "west"}]}
+{"makemodel": "Ford Fiesta", "root": "fiesta", "color": "white", "year": "2011", "phrase": "One white 2011 ford fiesta", "actions": [{"action": "travel", "speed": "55mph", "direction": "east", "lane": "left"}, {"action": "go", "speed": "55mph", "direction": "east", "lane": "left"}]}
+{"makemodel": "Van", "root": "van", "color": "white", "phrase": "A white van", "actions": [{"action": "travel", "speed": "55mph", "direction": "east", "lane": "right"}, {"action": "go", "speed": "55mph", "lane": "right"}]}
+{"makemodel": "Hatchback", "root": "hatchback", "color": "red", "phrase": "One red hatchback", "actions": [{"action": "travel", "speed": "45mph", "lane": "left", "actedon": "Van", "relaction": "follow", "direction": "east"}, {"action": "follow", "speed": "45mph", "actedon": "Van", "relaction": "follow", "relatedto": "Van", "direction": "east", "lane": "left"}]}
+{"makemodel": "SUV", "root": "SUV", "color": "maroon", "phrase": "One maroon SUV", "actions": [{"action": "travel", "speed": "40mph", "lane": "left", "direction": "east"}, {"action": "follow", "speed": "40mph", "relatedto": "Hatchback", "direction": "east"}]}
+
+
+
+Case:18
+
+It's a divided, three-lane state road with a speed limit of 55mph.
+A ego-vehicle is going north at 50mph through the middle lane.
+A black SUV is ahead of A ego-vehicle, travelling at 65mph through the middle lane.
+One bicycle is turning right onto south direction, from a eastbound side-road.
+One white van is going south using the left lane at 55mph.
+
+Road Property
+"type" : "regular"
+"main" : {"divided": true, "lane": 3}
+
+Vehicles
+{"makemodel": "Ego-vehicle", "root": "ego-vehicle", "phrase": "A ego-vehicle", "actions": [{"action": "travel", "speed": "50mph", "direction": "north"}, {"action": "go", "speed": "50mph", "direction": "north", "lane": "middle"}]}
+{"makemodel": "SUV", "root": "SUV", "color": "black", "phrase": "A black SUV", "actions": [{"action": "travel", "speed": "65mph", "direction": "north"}, {"action": "travel", "speed": "65mph", "relatedto": "Ego-vehicle", "direction": "north", "lane": "middle"}]}
+{"makemodel": "bicycle", "root": "bicycle", "phrase": "One bicycle", "actions": [{"action": "turn", "reldir": "right", "lane": "right"}, {"action": "turn", "direction": "south"}]}
+{"makemodel": "Van", "root": "van", "color": "white", "phrase": "One white van", "actions": [{"action": "travel", "speed": "55mph", "direction": "south", "lane": "left"}, {"action": "go", "speed": "55mph", "direction": "south", "lane": "left"}]}
+
+
+
+Case:19
+
+It's a divided, two-lane road with speed limit of 40mph.
+A ego-vehicle is going south at 30mph using the right lane.
+A black SUV is ahead of A ego-vehicle, going at 35mph through the right lane.
+One black 2011 Dodge Dart is going north at 30mph using the right lane.
+A black 2014 Honda Civic is about to pass One black 2011 Dodge Dart at 40mph using the left lane.
+
+Road Property
+"type" : "regular"
+"main" : {"way": 2, "divided": true, "lane": 2}
+
+Vehicles
+{"makemodel": "Ego-vehicle", "root": "ego-vehicle", "phrase": "A ego-vehicle", "actions": [{"action": "travel", "speed": "30mph", "direction": "south", "lane": "right"}, {"action": "go", "speed": "30mph", "direction": "south", "lane": "right"}]}
+{"makemodel": "SUV", "root": "SUV", "color": "black", "phrase": "A black SUV", "actions": [{"action": "travel", "speed": "35mph", "lane": "right", "direction": "south"}, {"action": "go", "speed": "35mph", "relatedto": "Ego-vehicle", "direction": "south", "lane": "right"}]}
+{"makemodel": "Dodge Dart", "root": "Dart", "color": "black", "year": "2011", "phrase": "One black 2011 Dodge Dart", "actions": [{"action": "travel", "direction": "north", "lane": "right", "speed": "30mph"}, {"action": "go", "speed": "30mph", "direction": "north", "lane": "right"}]}
+{"makemodel": "Honda Civic", "root": "Civic", "color": "black", "year": "2014", "phrase": "A black 2014 Honda Civic", "actions": [{"action": "travel", "speed": "40mph", "direction": "north", "lane": "left", "actedon": "Dodge Dart", "relaction": "pass"}, {"action": "pass", "speed": "40mph", "actedon": "Dodge Dart", "relaction": "pass", "lane": "left"}]}
+
+
+
+Case:20
+
+It's a divided, two-lane road with a speed limit of 45mph.
+A ego-vehicle is going North at 35mph through the right lane.
+A black sedan is ahead of A ego-vehicle, going through the right lane at 30mph.
+A black hatchback is ahead of A black sedan, travelling on the left lane.
+A silver 2011 Toyota Corolla is going south at 40mph.
+A silver sedan is following A silver 2011 Toyota Corolla at 35mph.	
+
+Road Property
+"type" : "regular"
+"main" : {"way": 2, "divided": true, "lane": 2}
+
+Vehicles
+{"makemodel": "Ego-vehicle", "root": "ego-vehicle", "phrase": "A ego-vehicle", "actions": [{"action": "travel", "speed": "35mph", "direction": "north", "lane": "right"}, {"action": "go", "speed": "35mph", "direction": "north", "lane": "right"}]}
+{"makemodel": "Sedan", "root": "sedan", "color": "black", "phrase": "A black sedan", "actions": [{"action": "travel", "speed": "30mph", "direction": "north", "lane": "right"}, {"action": "go", "speed": "30mph", "relatedto": "Ego-vehicle", "direction": "north", "lane": "right"}]}
+{"makemodel": "Hatchback", "root": "hatchback", "color": "black", "phrase": "A black hatchback", "actions": [{"action": "travel", "direction": "north", "lane": "left"}, {"action": "travel", "relatedto": "Sedan", "direction": "north", "lane": "left"}]}
+{"makemodel": "Toyota Corolla", "root": "Corolla", "color": "silver", "year": "2011", "phrase": "A silver 2011 Toyota Corolla", "actions": [{"action": "travel", "direction": "south", "speed": "40mph"}, {"action": "go", "speed": "40mph", "direction": "south"}]}
+{"makemodel": "Sedan", "root": "sedan", "color": "silver", "phrase": "A silver sedan", "actions": [{"action": "travel", "speed": "35mph", "direction": "south", "actedon": "Toyota Corolla", "relaction": "follow"}, {"action": "follow", "speed": "35mph", "actedon": "Toyota Corolla", "relaction": "follow", "relatedto": "Toyota Corolla", "direction": "south"}]}
+
+
+
+Case:21
+
+It's a 4-way junction.
+A ego-vehicle is stopped at the signal on the South branch of the junction of the junction.
+A silver Ford Prius is turning left onto the South branch at 25mph. 
+A black sedan is following A silver Ford Prius at 15mph.
+A white van stopped at the signal on the East branch.
+Two sedans are stopped at the signal on the North branch.
+
+Road Property
+"type" : "junction"
+"junc" : {"type": "4-way"}
+"south" : {"way": 2, "lane": 1, "divided": false}
+"north" : {"way": 2, "lane": 1, "divided": false}
+"east" : {"way": 2, "lane": 1, "divided": false}
+
+Vehicles
+{"makemodel": "Ego-vehicle", "root": "ego-vehicle", "phrase": "A ego-vehicle", "actions": [{"action": "stop", "direction": "south", "branch": "south"}, {"action": "stop", "direction": "south"}]}
+{"makemodel": "Toyota Prius", "root": "Prius", "color": "Ford", "phrase": "A silver Ford Prius", "actions": [{"action": "turn", "speed": "25mph", "reldir": "left", "lane": "right"}, {"action": "turn", "speed": "25mph", "direction": "south"}]}
+{"makemodel": "Sedan", "root": "sedan", "color": "black", "phrase": "A black sedan", "actions": [{"action": "travel", "speed": "15mph", "direction": "south", "lane": "right", "actedon": "Toyota Prius", "relaction": "follow"}, {"action": "follow", "speed": "15mph", "actedon": "Toyota Prius", "relaction": "follow", "relatedto": "Toyota Prius"}]}
+{"makemodel": "Van", "root": "van", "color": "white", "phrase": "A white van", "actions": [{"action": "stop", "direction": "east", "branch": "east"}, {"action": "stop", "direction": "east"}]}
+{"makemodel": "Sedan", "root": "sedans", "phrase": "Two sedans", "actions": [{"action": "stop", "direction": "north", "branch": "north"}, {"action": "stop", "direction": "north"}]}
+{"makemodel": "Sedan", "root": "sedans", "phrase": "Two sedans", "actions": [{"action": "stop", "direction": "north", "branch": "north"}, {"action": "stop", "direction": "north"}]}
+
+
+
+Case:22
+
+It's a two-way, double-lane road. 
+A ego-vehicle is going east at 20mph.
+A white 2013 Hyundai Elantra is ahead of A ego-vehicle, going at 25mph through the right lane.
+A white 2007 Nissan March is ahead of A white 2013 Hyundai Elantra, going at 25mph.
+One blue 2009 Hyundai Sonata is going west at 30mph through the right lane. 
+One silver sedan and one white sedan is following One blue 2009 Hyundai Sonata closely behind.
+
+Road Property
+"type" : "regular"
+"main" : {"way": 2, "divided": false}
+
+Vehicles
+{"makemodel": "Ego-vehicle", "root": "ego-vehicle", "phrase": "A ego-vehicle", "actions": [{"action": "travel", "direction": "east", "speed": "20mph"}, {"action": "go", "speed": "20mph", "direction": "east"}]}
+{"makemodel": "Hyundai Elantra", "root": "Elantra", "color": "white", "year": "2013", "phrase": "A white 2013 Hyundai Elantra", "actions": [{"action": "travel", "direction": "east", "lane": "right", "speed": "25mph"}, {"action": "go", "speed": "25mph", "relatedto": "Ego-vehicle", "direction": "east", "lane": "right"}]}
+{"makemodel": "Nissan March", "root": "March", "color": "white", "year": "2007", "phrase": "A white 2007 Nissan March", "actions": [{"action": "travel", "direction": "east", "speed": "25mph"}, {"action": "go", "speed": "25mph", "relatedto": "Hyundai Elantra", "direction": "east"}]}
+{"makemodel": "Hyundai Sonata", "root": "Sonata", "color": "blue", "year": "2009", "phrase": "One blue 2009 Hyundai Sonata", "actions": [{"action": "travel", "direction": "west", "lane": "right", "speed": "30mph"}, {"action": "go", "speed": "30mph", "direction": "west", "lane": "right"}]}
+{"makemodel": "Sedan", "root": "sedan", "color": "silver", "phrase": "One silver sedan", "actions": [{"action": "travel", "direction": "west", "lane": "right", "actedon": "Hyundai Sonata", "relaction": "follow"}, {"action": "follow", "actedon": "Hyundai Sonata", "relaction": "follow", "relatedto": "Hyundai Sonata", "direction": "west"}]}
+{"makemodel": "Sedan", "root": "sedan", "color": "white", "phrase": "one white sedan", "actions": [{"action": "travel", "direction": "west", "lane": "right", "actedon": "Hyundai Sonata", "relaction": "follow"}, {"action": "follow", "actedon": "Hyundai Sonata", "relaction": "follow", "relatedto": "Hyundai Sonata", "direction": "west"}]}
+
+
+
+Case:23
+
+It's a 4-way junction.
+A ego-vehicle is stopped at a signal on the South branch of the junction of the junction.
+One black 2012 Buick and one white 2013 Hyundai are going through the junction towards the South branch.
+One silver SUV is going through the junction at 30mph towards the East branch.
+
+Road Property
+"type" : "junction"
+"junc" : {"type": "4-way"}
+"south" : {"way": 2, "lane": 1, "divided": false}
+"east" : {"way": 2, "lane": 1, "divided": false}
+
+Vehicles
+{"makemodel": "Ego-vehicle", "root": "ego-vehicle", "phrase": "A ego-vehicle", "actions": [{"action": "park", "parkloc": "on-road", "parkdir": "left"}, {"action": "stop", "direction": "south"}]}
+{"makemodel": "Buick", "root": "Buick", "color": "white", "year": "2013", "phrase": "One black 2012 Buick", "actions": [{"action": "travel", "direction": "south", "lane": "right"}, {"action": "go", "direction": "south"}]}
+{"makemodel": "Hyundai", "root": "Hyundai", "color": "white", "year": "2013", "phrase": "one white 2013 Hyundai", "actions": [{"action": "travel", "direction": "south", "lane": "right"}, {"action": "go", "direction": "south"}]}
+{"makemodel": "SUV", "root": "SUV", "color": "silver", "phrase": "One silver SUV", "actions": [{"action": "travel", "speed": "30mph", "direction": "east", "lane": "right"}, {"action": "go", "speed": "30mph", "direction": "east"}]}
+
+
+
+Case:24
+
+It's a two-way, double-lane road.
+A black microbus is going west at 25mph.
+A ego-vehicle is about to pass A black microbus at 30mph through the left lane.
+A white 2000 Toyota is leading A black microbus.
+Two silver sedans are leading A white 2000 Toyota.
+A black 2011 Honda Accord is going east at 25mph using the right lane.
+A green 2012 Hyundai Accent is following A black 2011 Honda Accord closely.
+
+Road Property
+"type" : "regular"
+"main" : {"way": 2, "divided": false}
+
+Vehicles
+{"makemodel": "Microbus", "root": "microbus", "color": "black", "phrase": "A black microbus", "actions": [{"action": "travel", "speed": "25mph", "direction": "west"}, {"action": "go", "speed": "25mph", "direction": "west"}]}
+{"makemodel": "Ego-vehicle", "root": "ego-vehicle", "phrase": "A ego-vehicle", "actions": [{"action": "travel", "speed": "30mph", "direction": "west", "lane": "left", "actedon": "Microbus", "relaction": "pass"}, {"action": "pass", "speed": "30mph", "actedon": "Microbus", "relaction": "pass", "lane": "left"}]}
+{"makemodel": "Toyota", "root": "Toyota", "color": "white", "year": "2000", "phrase": "A white 2000 Toyota", "actions": [{"action": "travel", "direction": "west", "lane": "left"}, {"action": "lead"}]}
+{"makemodel": "Sedan", "root": "sedans", "color": "silver", "phrase": "Two silver sedans", "actions": [{"action": "travel"}, {"action": "lead"}]}
+{"makemodel": "Sedan", "root": "sedans", "color": "silver", "phrase": "Two silver sedans", "actions": [{"action": "travel"}, {"action": "lead"}]}
+{"makemodel": "Honda Accord", "root": "Accord", "color": "black", "year": "2011", "phrase": "A black 2011 Honda Accord", "actions": [{"action": "travel", "speed": "25mph", "direction": "east", "lane": "right"}, {"action": "go", "speed": "25mph", "direction": "east", "lane": "right"}]}
+{"makemodel": "Hyundai Accent", "root": "Accent", "color": "green", "year": "2012", "phrase": "A green 2012 Hyundai Accent", "actions": [{"action": "travel", "speed": "25mph", "direction": "east", "lane": "right", "actedon": "Honda Accord", "relaction": "follow"}, {"action": "follow", "actedon": "Honda Accord", "relaction": "follow", "relatedto": "Honda Accord", "direction": "east"}]}
+
+
+
+Case:25
+
+It's a two-way, single-lane road.
+A ego-vehicle is going North at 20mph through the right lane.
+Two black hatchbacks are parked off-street on the left side.
+A black 2013 Toyota Corolla is going North at 25mph.
+A beige hatchback is following A black 2013 Toyota Corolla closely behind.
+
+Road Property
+"type" : "regular"
+"main" : {"way": 2, "divided": false, "lane": 1}
+
+Vehicles
+{"makemodel": "Ego-vehicle", "root": "ego-vehicle", "phrase": "A ego-vehicle", "actions": [{"action": "travel", "speed": "20mph", "direction": "north", "lane": "right"}, {"action": "go", "speed": "20mph", "direction": "north", "lane": "right"}]}
+{"makemodel": "Hatchback", "root": "hatchbacks", "color": "black", "phrase": "Two black hatchbacks", "actions": [{"action": "park", "parkloc": "off-road", "parkdir": "left"}, {"action": "park", "lane": "left"}]}
+{"makemodel": "Hatchback", "root": "hatchbacks", "color": "black", "phrase": "Two black hatchbacks", "actions": [{"action": "park", "parkloc": "off-road", "parkdir": "left"}, {"action": "park", "lane": "left"}]}
+{"makemodel": "Toyota Corolla", "root": "Corolla", "color": "black", "year": "2013", "phrase": "A black 2013 Toyota Corolla", "actions": [{"action": "travel", "direction": "north", "lane": "right", "speed": "25mph"}, {"action": "go", "speed": "25mph", "direction": "north"}]}
+{"makemodel": "Hatchback", "root": "hatchback", "color": "beige", "phrase": "A beige hatchback", "actions": [{"action": "travel", "direction": "north", "actedon": "Toyota Corolla", "relaction": "follow"}, {"action": "follow", "actedon": "Toyota Corolla", "relaction": "follow", "relatedto": "Toyota Corolla", "direction": "north"}]}
+
+
+
+Case:26
+
+It's a T-junction.
+A ego-vehicle is about to turn right towards North from a Eastbound side-road.
+A black SUV is going South through the right lane on a two-way, double-lane road.
+A black sedan and a silver SUV are also going South.
+
+Road Property
+"type" : "junction"
+"junc" : {"type": "T"}
+
+Vehicles
+{"makemodel": "Ego-vehicle", "root": "ego-vehicle", "phrase": "A ego-vehicle", "actions": [{"action": "turn", "reldir": "right"}, {"action": "turn", "direction": "north"}]}
+{"makemodel": "SUV", "root": "SUV", "color": "black", "phrase": "A black SUV", "actions": [{"action": "travel", "direction": "south", "lane": "right"}, {"action": "go", "direction": "south", "lane": "right"}]}
+{"makemodel": "Sedan", "root": "sedan", "color": "black", "phrase": "A black sedan", "actions": [{"action": "travel", "direction": "south"}, {"action": "go", "direction": "south"}]}
+{"makemodel": "SUV", "root": "SUV", "color": "silver", "phrase": "a silver SUV", "actions": [{"action": "travel", "direction": "south", "lane": "right"}, {"action": "go", "direction": "south"}]}
+
+
+
+Case:27
+
+It's a one-way, double-lane road.
+Two sedans and three hatchbacks are parked off-street on the right.
+One SUV, One hatchback and Two sedans are parked on the left.
+A bicycle is going North at 15mph using the right lane.
+A ego-vehicle is also going North, at 25mph.
+
+Road Property
+"type" : "regular"
+"main" : {"way": 1, "divided": false, "lane": 2}
+
+Vehicles
+{"makemodel": "Sedan", "root": "sedans", "phrase": "Two sedans", "actions": [{}, {"action": "park"}]}
+{"makemodel": "Sedan", "root": "sedans", "phrase": "Two sedans", "actions": [{}, {"action": "park"}]}
+{"makemodel": "Sedan", "root": "sedans", "phrase": "Two sedans", "actions": [{}, {"action": "park"}]}
+{"makemodel": "Hatchback", "root": "hatchbacks", "phrase": "three hatchbacks", "actions": [{"action": "park", "parkloc": "off-road", "parkdir": "right"}, {"action": "park"}]}
+{"makemodel": "Hatchback", "root": "hatchbacks", "phrase": "three hatchbacks", "actions": [{"action": "park", "parkloc": "off-road", "parkdir": "right"}, {"action": "park"}]}
+{"makemodel": "Hatchback", "root": "hatchbacks", "phrase": "three hatchbacks", "actions": [{"action": "park", "parkloc": "off-road", "parkdir": "right"}, {"action": "park"}]}
+{"makemodel": "SUV", "root": "SUV", "phrase": "One SUV", "actions": [{"action": "park", "parkloc": "on-road", "parkdir": "left"}, {"action": "park"}]}
+{"makemodel": "Hatchback", "root": "hatchback", "phrase": "One hatchback", "actions": [{"action": "park", "parkloc": "on-road", "parkdir": "left"}, {"action": "park"}]}
+{"makemodel": "Hatchback", "root": "hatchback", "phrase": "One hatchback", "actions": [{"action": "park", "parkloc": "on-road", "parkdir": "left"}, {"action": "park"}]}
+{"makemodel": "bicycle", "root": "bicycle", "phrase": "A bicycle", "actions": [{"action": "travel", "speed": "15mph", "direction": "north", "lane": "right"}, {"action": "go", "speed": "15mph", "direction": "north", "lane": "right"}]}
+{"makemodel": "Ego-vehicle", "root": "ego-vehicle", "phrase": "A ego-vehicle", "actions": [{"action": "travel", "speed": "25mph", "direction": "north", "lane": "right"}, {"action": "go", "speed": "25mph", "direction": "north"}]}
+
+
+
+Case:28
+
+It's a T-junction with a Northbound divided, double-lane road and a Eastboound side-road.
+A white 2017 Toyota is turning left onto a Eastboound side-road.
+A ego-vehicle and a white sedan is stopped at a signal while going North.
+
+Road Property
+"type" : "junction"
+"junc" : {"type": "T"}
+"east" : {"way": 2, "lane": 1, "divided": false}
+
+Vehicles
+{"makemodel": "Toyota", "root": "Toyota", "color": "white", "year": "2017", "phrase": "A white 2017 Toyota", "actions": [{"action": "turn", "reldir": "left", "lane": "right"}, {"action": "turn", "direction": "east"}]}
+{"makemodel": "Ego-vehicle", "root": "ego-vehicle", "phrase": "A ego-vehicle", "actions": [{"action": "stop", "direction": "north", "branch": "north"}, {"action": "stop", "direction": "north"}]}
+{"makemodel": "Sedan", "root": "sedan", "color": "white", "phrase": "a white sedan", "actions": [{"action": "stop", "direction": "north", "branch": "north"}, {"action": "stop", "direction": "north"}]}
+
+
+
+Case:29
+
+It's a divided, three-lane interstate road with a speed limit of 70mph.
+A blue bus is going North through the right lane at 65mph.
+A ego-vehicle is following A blue bus, through the middle lane at 65mph.
+A blue 2007 Toyota Corolla is going South at 60mph.
+
+Road Property
+"type" : "regular"
+"main" : {"divided": true, "lane": 3}
+
+Vehicles
+{"makemodel": "Bus", "root": "bus", "color": "blue", "phrase": "A blue bus", "actions": [{"action": "travel", "speed": "65mph", "direction": "north", "lane": "right"}, {"action": "go", "speed": "65mph", "direction": "north", "lane": "right"}]}
+{"makemodel": "Ego-vehicle", "root": "ego-vehicle", "phrase": "A ego-vehicle", "actions": [{"action": "travel", "speed": "65mph", "direction": "north", "actedon": "Bus", "relaction": "follow"}, {"action": "follow", "speed": "65mph", "actedon": "Bus", "relaction": "follow", "relatedto": "Bus", "direction": "north", "lane": "middle"}]}
+{"makemodel": "Toyota Corolla", "root": "Corolla", "color": "blue", "year": "2007", "phrase": "A blue 2007 Toyota Corolla", "actions": [{"action": "travel", "direction": "south", "speed": "60mph"}, {"action": "go", "speed": "60mph", "direction": "south"}]}
+
+
+
+Case:30
+
+It's a two-way, single-lane road with a speed limit of 40mph.
+One 2013 Honda Accord and one 2012 Toyota Avalon is parked on the left side.
+A ego-vehicle is going North at 35mph.
+A white van is going on the opposite direction at 30mph.
+
+Road Property
+"type" : "regular"
+"main" : {"way": 2, "divided": false, "lane": 1}
+
+Vehicles
+{"makemodel": "Honda Accord", "root": "Accord", "color": "Toyota", "year": "2012", "phrase": "One 2013 Honda Accord", "actions": [{"action": "park", "parkloc": "on-road", "parkdir": "left"}, {"action": "park", "lane": "left"}]}
+{"makemodel": "Toyota Avalon", "root": "Avalon", "year": "2012", "phrase": "one 2012 Toyota Avalon", "actions": [{"action": "park", "parkloc": "on-road", "parkdir": "left", "lane": "left"}, {"action": "park", "lane": "left"}]}
+{"makemodel": "Ego-vehicle", "root": "ego-vehicle", "phrase": "A ego-vehicle", "actions": [{"action": "travel", "speed": "35mph", "direction": "north"}, {"action": "go", "speed": "35mph", "direction": "north"}]}
+{"makemodel": "Van", "root": "van", "color": "white", "phrase": "A white van", "actions": [{"action": "travel", "speed": "30mph", "direction": "south"}, {"action": "go", "speed": "30mph"}]}
+
+
+
+Case:31
+
+It's a two-way road with three lanes, one Northbound lane and two Southbound lanes.
+A ego-vehicle is going North at 25mph.
+A black hatchback is ahead of A ego-vehicle, travelling at a speed of 35mph.
+A black 2011 Hyundai Elantra is going South using the right lane.
+A grey hatchback is also going South at 40mph using the right lane.
+
+Road Property
+"type" : "regular"
+"main" : {"way": 2, "divided": false, "lane": 3}
+
+Vehicles
+{"makemodel": "Ego-vehicle", "root": "ego-vehicle", "phrase": "A ego-vehicle", "actions": [{"action": "travel", "direction": "north", "speed": "25mph"}, {"action": "go", "speed": "25mph", "direction": "north"}]}
+{"makemodel": "Hatchback", "root": "hatchback", "color": "black", "phrase": "A black hatchback", "actions": [{"action": "travel", "speed": "35mph", "direction": "south"}, {"action": "travel", "speed": "35mph", "relatedto": "Ego-vehicle", "direction": "north"}]}
+{"makemodel": "Hyundai Elantra", "root": "Elantra", "color": "black", "year": "2011", "phrase": "A black 2011 Hyundai Elantra", "actions": [{"action": "travel", "direction": "south", "lane": "right"}, {"action": "go", "direction": "south", "lane": "right"}]}
+{"makemodel": "Hatchback", "root": "hatchback", "color": "grey", "phrase": "A grey hatchback", "actions": [{"action": "travel", "speed": "40mph", "direction": "south", "lane": "right"}, {"action": "go", "speed": "40mph", "direction": "south", "lane": "right"}]}
+
+
+
+Case:32
+
+It's a 4-way junction.
+A ego-vehicle is stopped at the signal on the North branch of the junction.
+Two red hatchbacks are going South through the junction.
+A black SUV is also going South at 40mph through the junction.
+
+Road Property
+"type" : "junction"
+"junc" : {"type": "4-way"}
+"north" : {"way": 2, "lane": 1, "divided": false}
+
+Vehicles
+{"makemodel": "Ego-vehicle", "root": "ego-vehicle", "phrase": "A ego-vehicle", "actions": [{"action": "park", "parkloc": "on-road", "parkdir": "left"}, {"action": "stop", "direction": "north"}]}
+{"makemodel": "Hatchback", "root": "hatchbacks", "color": "red", "phrase": "Two red hatchbacks", "actions": [{"action": "travel", "direction": "south", "lane": "right"}, {"action": "go", "direction": "south"}]}
+{"makemodel": "Hatchback", "root": "hatchbacks", "color": "red", "phrase": "Two red hatchbacks", "actions": [{"action": "travel", "direction": "south", "lane": "right"}, {"action": "go", "direction": "south"}]}
+{"makemodel": "SUV", "root": "SUV", "color": "black", "phrase": "A black SUV", "actions": [{"action": "travel", "speed": "40mph", "direction": "south", "lane": "right"}, {"action": "go", "speed": "40mph", "direction": "south"}]}
+
+
+
+Case:33
+
+It's a 4-way junction.
+A red minivan and a ego-vehicle is stopped at the signal on the West branch of the junction.
+A pickup-truck is going North through the junction at 30mph.
+A black sedan is going North at 35mph on the South branch.
+Three sedans are stopped at the signal on the East branch.
+
+Road Property
+"type" : "junction"
+"junc" : {"type": "4-way"}
+"south" : {"way": 2, "lane": 1, "divided": false}
+"west" : {"way": 2, "lane": 1, "divided": false}
+"east" : {"way": 2, "lane": 1, "divided": false}
+
+Vehicles
+{"makemodel": "Minivan", "root": "minivan", "color": "red", "phrase": "A red minivan", "actions": [{"action": "stop", "direction": "west", "branch": "west"}, {"action": "stop", "direction": "west"}]}
+{"makemodel": "Ego-vehicle", "root": "ego-vehicle", "phrase": "a ego-vehicle", "actions": [{"action": "stop", "direction": "west", "branch": "west"}, {"action": "stop", "direction": "west"}]}
+{"makemodel": "Pickup-truck", "root": "pickup-truck", "phrase": "A pickup-truck", "actions": [{"action": "travel", "speed": "30mph", "direction": "north", "lane": "right"}, {"action": "go", "speed": "30mph", "direction": "north"}]}
+{"makemodel": "Sedan", "root": "sedan", "color": "black", "phrase": "A black sedan", "actions": [{"action": "travel", "speed": "35mph", "direction": "north", "lane": "right"}, {"action": "go", "speed": "35mph", "direction": "north"}]}
+{"makemodel": "Sedan", "root": "sedans", "phrase": "Three sedans", "actions": [{"action": "stop", "direction": "east", "branch": "east"}, {"action": "stop", "direction": "east"}]}
+{"makemodel": "Sedan", "root": "sedans", "phrase": "Three sedans", "actions": [{"action": "stop", "direction": "east", "branch": "east"}, {"action": "stop", "direction": "east"}]}
+{"makemodel": "Sedan", "root": "sedans", "phrase": "Three sedans", "actions": [{"action": "stop", "direction": "east", "branch": "east"}, {"action": "stop", "direction": "east"}]}
+
+
+
+Case:34
+
+It's a two-way, two-lane state road with a speed limit of 55mph.
+A ego-vehicle is going North at 50mph, through the right lane.
+A blue sedan is far ahead of A ego-vehicle, travelling at 55mph.
+A black 2012 Toyota Camry is going South at 40mph.
+A silver sedan is following A black 2012 Toyota Camry closely behind.
+
+Road Property
+"type" : "regular"
+"main" : {"way": 2, "divided": false, "lane": 2}
+
+Vehicles
+{"makemodel": "Ego-vehicle", "root": "ego-vehicle", "phrase": "A ego-vehicle", "actions": [{"action": "travel", "speed": "50mph", "direction": "north", "lane": "right"}, {"action": "go", "speed": "50mph", "direction": "north", "lane": "right"}]}
+{"makemodel": "Sedan", "root": "sedan", "color": "blue", "phrase": "A blue sedan", "actions": [{"action": "travel", "speed": "55mph", "direction": "north"}, {"action": "travel", "speed": "55mph", "relatedto": "Ego-vehicle", "direction": "north"}]}
+{"makemodel": "Toyota Camry", "root": "Camry", "color": "black", "year": "2012", "phrase": "A black 2012 Toyota Camry", "actions": [{"action": "travel", "direction": "south", "speed": "40mph"}, {"action": "go", "speed": "40mph", "direction": "south"}]}
+{"makemodel": "Sedan", "root": "sedan", "color": "silver", "phrase": "A silver sedan", "actions": [{"action": "travel", "speed": "40mph", "direction": "south", "actedon": "Toyota Camry", "relaction": "follow"}, {"action": "follow", "actedon": "Toyota Camry", "relaction": "follow", "relatedto": "Toyota Camry", "direction": "south"}]}
+
+
+
+Case:35
+
+It's a T-junction with a Eastbound two-way, double-lane main-road and a Southbound side-road.
+A bicyle is turning right towards East onto a Eastbound two-way , double-lane main-road.
+A ego-vehicle is following A bicyle.
+A red truck is going West through the junction at 30mph.
+A white SUV is parked off-street on the right side of a Eastbound two-way , double-lane main-road.
+
+Road Property
+"type" : "junction"
+"junc" : {"type": "T"}
+"south" : {"way": 2, "lane": 1, "divided": false}
+
+Vehicles
+{"makemodel": "Ego-vehicle", "root": "ego-vehicle", "phrase": "A ego-vehicle", "actions": [{"action": "travel", "direction": "east"}, {"action": "follow"}]}
+{"makemodel": "Truck", "root": "truck", "color": "red", "phrase": "A red truck", "actions": [{"action": "travel", "speed": "30mph", "direction": "west"}, {"action": "go", "speed": "30mph", "direction": "west"}]}
+{"makemodel": "SUV", "root": "SUV", "color": "white", "phrase": "A white SUV", "actions": [{"action": "park", "parkloc": "off-road", "parkdir": "right", "lane": "right"}, {"action": "park", "direction": "east", "lane": "right"}]}
+
+
+
+Case:36
+
+It's a two-way, single-lane road with a speed limit of 30mph.
+A ego-vehicle is going South at 35mph.
+A black van is going North at 25mph.
+
+Road Property
+"type" : "regular"
+"main" : {"way": 2, "divided": false, "lane": 1}
+
+Vehicles
+{"makemodel": "Ego-vehicle", "root": "ego-vehicle", "phrase": "A ego-vehicle", "actions": [{"action": "travel", "speed": "35mph", "direction": "south", "lane": "right"}, {"action": "go", "speed": "35mph", "direction": "south"}]}
+{"makemodel": "Van", "root": "van", "color": "black", "phrase": "A black van", "actions": [{"action": "travel", "direction": "north", "lane": "right", "speed": "25mph"}, {"action": "go", "speed": "25mph", "direction": "north"}]}
+
+
+
+Case:37
+
+It's a one-way, double-lane Northbound road with a speed limit of 30mph.
+A ego-vehicle is going at 35mph through the right lane.
+A black 2012 Toyota Camry is going North at 30mph.
+A black SUV is following A black 2012 Toyota Camry closely behind.
+
+Road Property
+"type" : "regular"
+"main" : {"way": 1, "divided": false, "lane": 2}
+
+Vehicles
+{"makemodel": "Ego-vehicle", "root": "ego-vehicle", "phrase": "A ego-vehicle", "actions": [{"action": "travel", "speed": "35mph", "direction": "north", "lane": "right"}, {"action": "go", "speed": "35mph", "lane": "right"}]}
+{"makemodel": "Toyota Camry", "root": "Camry", "color": "black", "year": "2012", "phrase": "A black 2012 Toyota Camry", "actions": [{"action": "travel", "speed": "30mph", "direction": "north", "lane": "right"}, {"action": "go", "speed": "30mph", "direction": "north"}]}
+{"makemodel": "SUV", "root": "SUV", "color": "black", "phrase": "A black SUV", "actions": [{"action": "travel", "direction": "north", "actedon": "Toyota Camry", "relaction": "follow"}, {"action": "follow", "actedon": "Toyota Camry", "relaction": "follow", "relatedto": "Toyota Camry", "direction": "north"}]}
+
+
+
+Case:38
+
+It's a divided, single-lane road.
+A ego-vehicle is going North at 30mph.
+A red pickup-truck is also going North at 35mph, ahead of A ego-vehicle.
+A yellow pickup-truck is going South at 30mph.
+
+Road Property
+"type" : "regular"
+"main" : {"divided": true, "lane": 1}
+
+Vehicles
+{"makemodel": "Ego-vehicle", "root": "ego-vehicle", "phrase": "A ego-vehicle", "actions": [{"action": "travel", "speed": "30mph", "direction": "north", "lane": "right"}, {"action": "go", "speed": "30mph", "direction": "north"}]}
+{"makemodel": "Pickup-truck", "root": "pickup-truck", "color": "red", "phrase": "A red pickup-truck", "actions": [{"action": "travel", "speed": "35mph", "direction": "north", "lane": "right"}, {"action": "go", "speed": "35mph", "direction": "north", "relatedto": "Ego-vehicle"}]}
+{"makemodel": "Pickup-truck", "root": "pickup-truck", "color": "yellow", "phrase": "A yellow pickup-truck", "actions": [{"action": "travel", "direction": "south", "speed": "30mph"}, {"action": "go", "speed": "30mph", "direction": "south"}]}
+
+
+
+Case:39
+
+It's a divided, single-lane road.
+A black SUV is travelling East at 25mph.
+A ego-vehicle is following A black SUV closely behind.
+A white SUV is going West at 30mph.
+A silver hatchback is following A white SUV closely behind.
+
+Road Property
+"type" : "regular"
+"main" : {"way": 1, "divided": false, "lane": 1}
+
+Vehicles
+{"makemodel": "SUV", "root": "SUV", "color": "black", "phrase": "A black SUV", "actions": [{"action": "travel", "speed": "25mph", "direction": "east", "lane": "right"}, {"action": "travel", "speed": "25mph", "direction": "east"}]}
+{"makemodel": "Ego-vehicle", "root": "ego-vehicle", "phrase": "A ego-vehicle", "actions": [{"action": "travel", "speed": "25mph", "direction": "east", "actedon": "SUV", "relaction": "follow"}, {"action": "follow", "actedon": "SUV", "relaction": "follow", "relatedto": "SUV", "direction": "east"}]}
+{"makemodel": "SUV", "root": "SUV", "color": "white", "phrase": "A white SUV", "actions": [{"action": "travel", "speed": "30mph", "direction": "west", "lane": "right"}, {"action": "go", "speed": "30mph", "direction": "west"}]}
+{"makemodel": "Hatchback", "root": "hatchback", "color": "silver", "phrase": "A silver hatchback", "actions": [{"action": "travel", "direction": "west", "lane": "right", "actedon": "SUV", "relaction": "follow"}, {"action": "follow", "actedon": "SUV", "relaction": "follow", "relatedto": "SUV", "direction": "west"}]}
+
+
+
+Case:40
+
+It's a two-way, double-lane Northbound road.
+A ego-vehicle is going North at 30mph through the right lane.
+A black 2011 Honda Accord is going South at 35mph.
+A silver sedan is also going South at 35mph, behind A black 2011 Honda Accord, through the right lane.
+Another white sedan is following A black 2011 Honda Accord.
+
+
+Road Property
+"type" : "regular"
+"main" : {"way": 2, "divided": false}
+
+Vehicles
+{"makemodel": "Ego-vehicle", "root": "ego-vehicle", "phrase": "A ego-vehicle", "actions": [{"action": "travel", "speed": "30mph", "direction": "north", "lane": "right"}, {"action": "go", "speed": "30mph", "direction": "north", "lane": "right"}]}
+{"makemodel": "Honda Accord", "root": "Accord", "color": "black", "year": "2011", "phrase": "A black 2011 Honda Accord", "actions": [{"action": "travel", "direction": "south", "speed": "35mph"}, {"action": "go", "speed": "35mph", "direction": "south"}]}
+{"makemodel": "Sedan", "root": "sedan", "color": "silver", "phrase": "A silver sedan", "actions": [{"action": "travel", "direction": "south", "lane": "right", "speed": "35mph"}, {"action": "go", "speed": "35mph", "direction": "south", "relatedto": "Honda Accord", "lane": "right"}]}
+{"makemodel": "Sedan", "root": "sedan", "color": "white", "phrase": "Another white sedan", "actions": [{"action": "travel", "direction": "south", "lane": "right", "actedon": "Honda Accord", "relaction": "follow"}, {"action": "follow", "actedon": "Honda Accord", "relaction": "follow", "relatedto": "Honda Accord", "direction": "south", "lane": "right"}]}
+
+
+
+Case:41
+
+It's a 4-way junction.
+A ego-vehicle is stopped at the signal on the South branch of the junction.
+A black hatchback is travelling East, through the junction at 35mph.
+A white hatchback is following A black hatchback.
+
+Road Property
+"type" : "junction"
+"junc" : {"type": "4-way"}
+"south" : {"way": 2, "lane": 1, "divided": false}
+
+Vehicles
+{"makemodel": "Ego-vehicle", "root": "ego-vehicle", "phrase": "A ego-vehicle", "actions": [{"action": "stop", "direction": "south", "branch": "south"}, {"action": "stop", "direction": "south"}]}
+{"makemodel": "Hatchback", "root": "hatchback", "color": "black", "phrase": "A black hatchback", "actions": [{"action": "travel", "speed": "35mph", "direction": "east", "lane": "right"}, {"action": "travel", "speed": "35mph", "direction": "east"}]}
+{"makemodel": "Hatchback", "root": "hatchback", "color": "white", "phrase": "A white hatchback", "actions": [{"action": "travel", "speed": "35mph", "lane": "right", "actedon": "Hatchback", "relaction": "follow", "direction": "east"}, {"action": "follow", "actedon": "Hatchback", "relaction": "follow", "relatedto": "Hatchback", "direction": "east"}]}
+
+
+
+Case:42
+
+It's a one-way, two-lane road.
+A black sedan is going East at 15mph, through the left lane.
+A ego-vehicle is about to pass A black sedan at 20mph, through the right lane.
+A white van is ahead of A black sedan, going at 25mph.
+Two sedans are parked on the left side.
+
+Road Property
+"type" : "regular"
+"main" : {"way": 1, "divided": false, "lane": 2}
+
+Vehicles
+{"makemodel": "Sedan", "root": "sedan", "color": "black", "phrase": "A black sedan", "actions": [{"action": "travel", "speed": "15mph", "direction": "east", "lane": "left"}, {"action": "go", "speed": "15mph", "direction": "east", "lane": "left"}]}
+{"makemodel": "Ego-vehicle", "root": "ego-vehicle", "phrase": "A ego-vehicle", "actions": [{"action": "travel", "speed": "20mph", "direction": "east", "lane": "right", "actedon": "Sedan", "relaction": "pass"}, {"action": "pass", "speed": "20mph", "actedon": "Sedan", "relaction": "pass", "lane": "right"}]}
+{"makemodel": "Van", "root": "van", "color": "white", "phrase": "A white van", "actions": [{"action": "travel", "direction": "east", "speed": "25mph"}, {"action": "go", "speed": "25mph", "relatedto": "Sedan", "direction": "east"}]}
+{"makemodel": "Sedan", "root": "sedans", "phrase": "Two sedans", "actions": [{"action": "park", "parkloc": "on-road", "parkdir": "left"}, {"action": "park", "lane": "left"}]}
+{"makemodel": "Sedan", "root": "sedans", "phrase": "Two sedans", "actions": [{"action": "park", "parkloc": "on-road", "parkdir": "left"}, {"action": "park", "lane": "left"}]}
+
+
+
+Case:43
+
+It's a two-way, double lane state road with a speed limit of 40mph.
+A ego-vehicle is going East at 35mph, through the left lane.
+A bicycle is ahead of A ego-vehicle, going at 15mph, through the right lane.
+A yellow bus is going West at 45mph through the left lane.
+
+Road Property
+"type" : "regular"
+"main" : {"way": 2, "divided": false}
+
+Vehicles
+{"makemodel": "Ego-vehicle", "root": "ego-vehicle", "phrase": "A ego-vehicle", "actions": [{"action": "travel", "speed": "35mph", "direction": "east", "lane": "left"}, {"action": "go", "speed": "35mph", "direction": "east", "lane": "left"}]}
+{"makemodel": "bicycle", "root": "bicycle", "phrase": "A bicycle", "actions": [{"action": "travel", "speed": "15mph", "lane": "right", "direction": "east"}, {"action": "go", "speed": "15mph", "relatedto": "Ego-vehicle", "direction": "east", "lane": "right"}]}
+{"makemodel": "Bus", "root": "bus", "color": "yellow", "phrase": "A yellow bus", "actions": [{"action": "travel", "speed": "45mph", "direction": "west", "lane": "left"}, {"action": "go", "speed": "45mph", "direction": "west", "lane": "left"}]}
+
+
+
+Case:44
+
+It's a one-way, double lane road with a speed limit of 30mph.
+A black 2009 Hyundai is going East at 25mph, through the right lane.
+A ego-vehicle is about to pass A black 2009 Hyundai, travelling at 35mph, through the left lane.
+
+Road Property
+"type" : "regular"
+"main" : {"way": 1, "divided": false, "lane": 2}
+
+Vehicles
+{"makemodel": "Hyundai", "root": "Hyundai", "color": "black", "year": "2009", "phrase": "A black 2009 Hyundai", "actions": [{"action": "travel", "speed": "25mph", "direction": "east", "lane": "right"}, {"action": "go", "speed": "25mph", "direction": "east", "lane": "right"}]}
+{"makemodel": "Ego-vehicle", "root": "ego-vehicle", "phrase": "A ego-vehicle", "actions": [{"action": "travel", "speed": "35mph", "lane": "left"}, {"action": "pass", "speed": "35mph", "lane": "left"}]}
+
+
+
+Case:45
+
+It's a two-way, double lane Northbound state road with a speed limit of 50mph.
+A ego-vehicle is turning right onto the road, with a speed of 15mph.
+A black SUV is ahead of A ego-vehicle, travelling North at 30mph.
+A white van is travelling South at 45mph through the right lane.
+A silver 2015 Hyundai Elantra is also going South, through the left lane.
+A grey hatchback is following closely behind.
+
+Road Property
+"type" : "regular"
+"main" : {"way": 2, "divided": false}
+
+Vehicles
+{"makemodel": "Ego-vehicle", "root": "ego-vehicle", "phrase": "A ego-vehicle", "actions": [{"action": "turn", "speed": "15mph", "reldir": "right"}, {"action": "turn", "speed": "15mph"}]}
+{"makemodel": "SUV", "root": "SUV", "color": "black", "phrase": "A black SUV", "actions": [{"action": "travel", "speed": "30mph", "direction": "north"}, {"action": "travel", "speed": "30mph", "direction": "north", "relatedto": "Ego-vehicle"}]}
+{"makemodel": "Van", "root": "van", "color": "white", "phrase": "A white van", "actions": [{"action": "travel", "speed": "45mph", "direction": "south", "lane": "right"}, {"action": "travel", "speed": "45mph", "direction": "south", "lane": "right"}]}
+{"makemodel": "Hyundai Elantra", "root": "Elantra", "color": "silver", "year": "2015", "phrase": "A silver 2015 Hyundai Elantra", "actions": [{"action": "travel", "direction": "south", "lane": "left"}, {"action": "go", "direction": "south", "lane": "left"}]}
+{"makemodel": "Hatchback", "root": "hatchback", "color": "grey", "phrase": "A grey hatchback", "actions": [{"action": "travel", "direction": "south"}, {"action": "follow", "relatedto": "Hyundai Elantra", "direction": "south"}]}
+
+
+
+Case:46
+
+It's a two-way, single lane Westbound road.
+One red 2012 Ford and One white hatchback are parked off-street on the right side.
+A ego-vehicle is going West at 35mph.
+A red SUV is also going West, ahead of A ego-vehicle.
+A silver SUV is parked off-street on the left side.
+
+Road Property
+"type" : "regular"
+"main" : {"way": 2, "divided": false, "lane": 1}
+
+Vehicles
+{"makemodel": "Ford", "root": "Ford", "color": "red", "year": "2012", "phrase": "One red 2012 Ford", "actions": [{"action": "park", "parkloc": "off-road", "parkdir": "right"}, {"action": "park", "lane": "right"}]}
+{"makemodel": "Hatchback", "root": "hatchback", "color": "white", "phrase": "One white hatchback", "actions": [{"action": "park", "parkloc": "off-road", "parkdir": "right"}, {"action": "park", "lane": "right"}]}
+{"makemodel": "Ego-vehicle", "root": "ego-vehicle", "phrase": "A ego-vehicle", "actions": [{"action": "travel", "speed": "35mph", "direction": "west"}, {"action": "go", "speed": "35mph", "direction": "west"}]}
+{"makemodel": "SUV", "root": "SUV", "color": "red", "phrase": "A red SUV", "actions": [{"action": "travel", "direction": "west"}, {"action": "go", "direction": "west", "relatedto": "Ego-vehicle"}]}
+{"makemodel": "SUV", "root": "SUV", "color": "silver", "phrase": "A silver SUV", "actions": [{"action": "park", "parkloc": "off-road", "parkdir": "left", "lane": "left"}, {"action": "park", "lane": "left"}]}
+
+
+
+Case:47
+Case:48
+
+It's a two-way, double lane road with a speed limit of 50mph.
+A ego-vehicle is going East at 45mph, through the left lane.
+A black SUV is travelling East at 55mph, through the right lane.
+A silver sedan is going West at 45mph, through the right lane.
+A grey 2013 Hyundai Sonata is about to pass A silver sedan at 55mph, through the left lane.
+
+Road Property
+"type" : "regular"
+"main" : {"way": 2, "divided": false}
+
+Vehicles
+{"makemodel": "Ego-vehicle", "root": "ego-vehicle", "phrase": "A ego-vehicle", "actions": [{"action": "travel", "speed": "45mph", "direction": "east", "lane": "left"}, {"action": "go", "speed": "45mph", "direction": "east", "lane": "left"}]}
+{"makemodel": "SUV", "root": "SUV", "color": "black", "phrase": "A black SUV", "actions": [{"action": "travel", "speed": "55mph", "direction": "east", "lane": "right"}, {"action": "travel", "speed": "55mph", "direction": "east", "lane": "right"}]}
+{"makemodel": "Sedan", "root": "sedan", "color": "silver", "phrase": "A silver sedan", "actions": [{"action": "travel", "direction": "west", "lane": "right", "speed": "45mph"}, {"action": "go", "speed": "45mph", "direction": "west", "lane": "right"}]}
+{"makemodel": "Hyundai Sonata", "root": "Sonata", "color": "grey", "year": "2013", "phrase": "A grey 2013 Hyundai Sonata", "actions": [{"action": "travel", "speed": "55mph", "direction": "west", "lane": "left", "actedon": "Sedan", "relaction": "pass"}, {"action": "pass", "speed": "55mph", "actedon": "Sedan", "relaction": "pass", "lane": "left"}]}
+
+
+
+Case:49
+
+It's a 4-way junction.
+A ego-vehicle is stopped at a signal on the West branch of the jucntion.
+Two sedans are stopped at a signal on the East branch of the jucntion
+A black SUV is going North through the junction at 45mph.
+
+Road Property
+"type" : "junction"
+"junc" : {"type": "4-way"}
+"west" : {"way": 2, "lane": 1, "divided": false}
+"east" : {"way": 2, "lane": 1, "divided": false}
+
+Vehicles
+{"makemodel": "Ego-vehicle", "root": "ego-vehicle", "phrase": "A ego-vehicle", "actions": [{"action": "park", "parkloc": "on-road", "parkdir": "left"}, {"action": "stop", "direction": "west"}]}
+{"makemodel": "Sedan", "root": "sedans", "phrase": "Two sedans", "actions": [{"action": "stop", "direction": "east", "branch": "east"}, {"action": "stop", "direction": "east"}]}
+{"makemodel": "Sedan", "root": "sedans", "phrase": "Two sedans", "actions": [{"action": "stop", "direction": "east", "branch": "east"}, {"action": "stop", "direction": "east"}]}
+{"makemodel": "SUV", "root": "SUV", "color": "black", "phrase": "A black SUV", "actions": [{"action": "travel", "speed": "45mph", "direction": "north", "lane": "right"}, {"action": "go", "speed": "45mph", "direction": "north"}]}
+
+
+
